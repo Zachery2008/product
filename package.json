@@ -1,0 +1,31 @@
+{
+  "name": "SenzTest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/cosmos": "^2.1.7",
+    "amqplib": "^0.5.5",
+    "async": "^3.1.0",
+    "axios": "^0.19.0",
+    "azure-storage": "^2.8.0",
+    "dotenv": "^5.0.0",
+    "express": "^4.17.1",
+    "fs-extra": "^8.1.0",
+    "make-dir": "^3.0.0",
+    "moment": "^2.24.0",
+    "promise": "^8.0.3",
+    "uuid": "^3.3.2",
+    "yargs": "^11.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

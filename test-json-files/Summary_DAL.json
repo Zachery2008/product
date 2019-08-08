@@ -1,0 +1,1325 @@
+{
+	"id": "DAL027_1901210824",
+	"Company": "DeltaAirlines",
+	"UniqueID": "DAL027",
+	"CalibDate": "1901210824",
+	"CalibTimeZ": 25363876594221600,
+	"CalibRefPose": "T",
+	"StarTimeIdx": 1,
+	"EndTimeIdx": 429015,
+	"DailyNotes": [
+		"                                                                                         ",
+		"                                                                                         ",
+		"                                                                                         ",
+		"                                                                                         ",
+		"                                                                                         ",
+		"                                                                                         ",
+		"                                                                                         ",
+		"                                                                                         "
+	],
+	"Motion_Summary": {
+		"NormOrangeCount": [1411.118145,0,234.9573674,0,1011.019314,0,0,1055.32556,0,365.1908796,0,322.2272467,212.1329374,0,0,0,0,0],
+		"NormYellowCount": [367.8761066,0,226.9016862,0,244.3556621,0,0,252.4113432,0,165.1414639,0,230.9295268,193.336348,5.370454111,0,0,0,0],
+		"NormRedCount": [392.0118225,0,0,0,727.6652044,0,0,596.0890787,0,0,0,0,0,0,0,0,0,0],
+		"RiskCount": {
+			"_ArrayType_": "double",
+			"_ArraySize_": [6,3,3],
+			"_ArrayData_": [367.8761066,0,0,165.1414639,193.336348,0,0,244.3556621,252.4113432,0,5.370454111,0,226.9016862,0,0,230.9295268,0,0,1411.118145,0,0,365.1908796,212.1329374,0,0,1011.019314,1055.32556,0,0,0,234.9573674,0,0,322.2272467,0,0,392.0118225,0,0,0,0,0,0,727.6652044,596.0890787,0,0,0,0,0,0,0,0,0]
+		},
+		"DailyNotes": [
+			[
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"pronation"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"pronation"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"flexion"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"flexion"
+					],
+					"RiskScore": 1
+				}
+			],
+			[
+				{
+					"RiskType": null,
+					"Description": [
+						"positive threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"positive threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"positive threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"positive threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"lateral flexion"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"lateral flexion"
+					],
+					"RiskScore": 1
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"flexion"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"flexion"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"positive threshold"
+					],
+					"RiskScore": 1
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"sustained pronation"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"sustained pronation"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"sustained flexion"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"sustained flexion"
+					],
+					"RiskScore": 2
+				}
+			],
+			[
+				{
+					"RiskType": null,
+					"Description": [
+						"positive threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"positive threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"positive threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"positive threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"sustained lateral flexion"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"sustained lateral flexion"
+					],
+					"RiskScore": 2
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"sustained flexion"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"sustained flexion"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"positive threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"positive threshold, sustained"
+					],
+					"RiskScore": 2
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"pronation, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"pronation, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"flexion, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"flexion, excess speed"
+					],
+					"RiskScore": 2
+				}
+			],
+			[
+				{
+					"RiskType": null,
+					"Description": [
+						"positive threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"positive threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"positive threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"positive threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"lateral flexion, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"lateral flexion, excess speed"
+					],
+					"RiskScore": 2
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"flexion, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"flexion, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"positive threshold, excess speed"
+					],
+					"RiskScore": 2
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"pronation, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"pronation, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"flexion, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"flexion, excess speed & count"
+					],
+					"RiskScore": 3
+				}
+			],
+			[
+				{
+					"RiskType": null,
+					"Description": [
+						"positive threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"positive threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"positive threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"positive threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"lateral flexion, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"lateral flexion, excess speed & count"
+					],
+					"RiskScore": 3
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"flexion, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"flexion, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"positive threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"positive threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"supination"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"supination"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"extension"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"extension"
+					],
+					"RiskScore": 1
+				}
+			],
+			[
+				{
+					"RiskType": null,
+					"Description": [
+						"negative threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"negative threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"lateral extension"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"lateral extension"
+					],
+					"RiskScore": 1
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"extension"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"extension"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold"
+					],
+					"RiskScore": 1
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"negative threshold"
+					],
+					"RiskScore": 1
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"sustained supination"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"sustained supination"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"sustained extension"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"sustained extension"
+					],
+					"RiskScore": 2
+				}
+			],
+			[
+				{
+					"RiskType": null,
+					"Description": [
+						"negative threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"negative threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"negative threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"negative threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"sustained lateral extension"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"sustained lateral extension"
+					],
+					"RiskScore": 2
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"sustained extension"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"sustained extension"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"negative threshold, sustained"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"negative threshold, sustained"
+					],
+					"RiskScore": 2
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"supination, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"supination, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"extension, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"extension, excess speed"
+					],
+					"RiskScore": 2
+				}
+			],
+			[
+				{
+					"RiskType": null,
+					"Description": [
+						"negative threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"negative threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"negative threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"negative threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"lateral extension, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"lateral extension, excess speed"
+					],
+					"RiskScore": 2
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"extension, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"extension, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, excess speed"
+					],
+					"RiskScore": 2
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"negative threshold, excess speed"
+					],
+					"RiskScore": 2
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"supination, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"supination, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"extension, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"extension, excess speed & count"
+					],
+					"RiskScore": 3
+				}
+			],
+			[
+				{
+					"RiskType": null,
+					"Description": [
+						"negative threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"negative threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"LifeBooster"
+					],
+					"Description": [
+						"negative threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"negative threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"lateral extension, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"lateral extension, excess speed & count"
+					],
+					"RiskScore": 3
+				}
+			],
+			[
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"extension, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"extension, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": [
+						"WorkSafe C4-2"
+					],
+					"Description": [
+						"negative threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				},
+				{
+					"RiskType": null,
+					"Description": [
+						"negative threshold, excess speed & count"
+					],
+					"RiskScore": 3
+				}
+			]
+		]
+	},
+	"Spatial_Summary": {
+		"NormOrangeCount": 0,
+		"NormYellowCount": 0,
+		"NormRedCount": 0,
+		"TravelTypePercent": [
+			[-1,0],
+			[0,12.735219],
+			[1,35.68360138],
+			[2,3.850448132],
+			[3,47.73073196],
+			[4,0],
+			[5,0],
+			[6,0]
+		],
+		"SlipTripFallCount": 0,
+		"SlipTripFall": null
+	},
+	"Thermal_Summary": {
+		"NormOrangeCount": 0,
+		"NormYellowCount": 0,
+		"NormRedCount": 0,
+		"TimeSpentGreen": 358,
+		"TimeSpentYellow": 0,
+		"TimeSpentOrange": 0,
+		"TimeSpentRed": 0,
+		"BodyAmbientMax": 25.59823227,
+		"BodyAmbientMin": 21.66631889,
+		"BodyAmbientMean": 23.80747032
+	}
+}
