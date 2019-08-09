@@ -147,47 +147,45 @@ async function deletion(dataDir){
 
 
 module.exports = async function executeReprocess(Input, callback){
-    return new Promise((resolve, reject) => {
-        const AssessmentID = uuidv4();
-        const containerName = Input.containerName;
-        const CompanyID = Input.companyID;
-        const DcaID = Input.dcaID;
-        const Command = Input.command;
-        const StartTimeIdx = Input.startTimeIdx;
-        const EndTimeIdx = Input.endTimeIdx;
-        const MatlabArgs = JSON.stringify({
-            "AssessmentID": AssessmentID,
-            "Command": Command,
-            "StartTimeIdx": StartTimeIdx,
-            "EndTimeIdx": EndTimeIdx
-        });
-        console.log(MatlabArgs);
+    const AssessmentID = uuidv4();
+    const containerName = Input.containerName;
+    const CompanyID = Input.companyID;
+    const DcaID = Input.dcaID;
+    const Command = Input.command;
+    const StartTimeIdx = Input.startTimeIdx;
+    const EndTimeIdx = Input.endTimeIdx;
+    const MatlabArgs = JSON.stringify({
+        "AssessmentID": AssessmentID,
+        "Command": Command,
+        "StartTimeIdx": StartTimeIdx,
+        "EndTimeIdx": EndTimeIdx
+    });
+    console.log(MatlabArgs);
 
 
-        // Make folder for assessment
-        const AssessmentDir = path.resolve('./../', AssessmentID);
-        makeDir(AssessmentDir);
-        
-        downloadBlob(containerName, DcaID, AssessmentDir)
+    // Make folder for assessment
+    const AssessmentDir = path.resolve('./../', AssessmentID);
+    makeDir(AssessmentDir);
+    
+    downloadBlob(containerName, DcaID, AssessmentDir)
+        .then(() => {
+            downloadBlob(containerName, CompanyID, AssessmentDir)
             .then(() => {
-                downloadBlob(containerName, CompanyID, AssessmentDir)
+                runMatlab(MatlabArgs) 
                 .then(() => {
-                    runMatlab(MatlabArgs) 
+                    upload2Cosmos(AssessmentDir)
                     .then(() => {
-                        upload2Cosmos(AssessmentDir)
-                        .then(() => {
-                            fsExtra.remove(AssessmentDir,(err) =>{
-                                if(err){
-                                    callback(true);
-                                }
-                                else{
-                                    callback(false);
-                                }
-                            })
-                    })
+                        fsExtra.remove(AssessmentDir,(err) =>{
+                            if(err){
+                                callback(true);
+                            }
+                            else{
+                                callback(false);
+                            }
+                        })
                 })
             })
-        });
+        })
     });
 }
 
