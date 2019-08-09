@@ -22,7 +22,9 @@ app.get('/', function (req, res, next){
     Input.dcaID = req.query.dcaID;
     Input.companyID = req.query.companyID;
     Input.command = req.query.command;
-    
+    Input.startTimeIdx = req.query.startTimeIdx;
+    Input.endTimeIdx = req.query.endTimeIdx;
+    Input.priority = req.query.priority;
     console.log(Input);
 
     send2JobQueue(Input);
