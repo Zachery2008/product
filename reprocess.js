@@ -1,5 +1,5 @@
 //const { execSync } = require('child_process');
-const { exec } = require('child_process');
+const { execFile } = require('child_process');
 const fs = require('fs');
 const fsExtra = require('fs-extra')
 const makeDir = require('make-dir');
@@ -55,17 +55,13 @@ async function downloadBlob(containerName, filePrefix, localDir){
     });
 }
 
-async function runMatlab(Command, DcaID, CompanyID){
+async function runMatlab(args){
     // Run reprocess
     return new Promise((resolve, reject) => {
         let file2Run = 'ReProcessTest.exe';
-        let INPUT = Command + ' ' + DcaID + ' ' + CompanyID;
-        let file2Run1 = 'ReProcessTest.exe' + ' ' + INPUT;
-        console.log(file2Run1);
-            //await execSync(file2Run1);
-            exec(file2Run1, (err) =>{
+            execFile(file2Run, [args], (err) =>{
                 if(err){
-                    console.error('reprocess failed, dca files do not exist.');
+                    console.error('reprocess failed');
                     reject('err');
                 }
                 else{
@@ -157,6 +153,15 @@ module.exports = async function executeReprocess(Input, callback){
         const CompanyID = Input.companyID;
         const DcaID = Input.dcaID;
         const Command = Input.command;
+        const StartTimeIdx = Input.startTimeIdx;
+        const EndTimeIdx = Input.endTimeIdx;
+        const MatlabArgs = JSON.stringify({
+            "AssessmentID": AssessmentID,
+            "Command": Command,
+            "StartTimeIdx": StartTimeIdx,
+            "EndTimeIdx": EndTimeIdx
+        });
+        console.log(MatlabArgs);
 
 
         // Make folder for assessment
@@ -167,7 +172,7 @@ module.exports = async function executeReprocess(Input, callback){
             .then(() => {
                 downloadBlob(containerName, CompanyID, AssessmentDir)
                 .then(() => {
-                    runMatlab(Command, AssessmentID, AssessmentID) 
+                    runMatlab(MatlabArgs) 
                     .then(() => {
                         upload2Cosmos(AssessmentDir)
                         .then(() => {
