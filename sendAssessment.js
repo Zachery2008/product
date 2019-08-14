@@ -3,35 +3,43 @@ const fs = require('fs');
 const logger = require('./middleware/logger');
 const axios = require('axios');
 
-// Read Json file from current directory
-const jsonFilePath = path.resolve('./test-json-files/', 'Summary.json');
-let jsonData = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
+async function sendAssessment(AssessmentID, DcaID){
+  return new Promise((resolve, reject) =>{
+    // Read Json file from current directory
+    const jsonFilePath = path.resolve('./../', AssessmentID, '/Summary.json');
+    let jsonData = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
 
-axios({
-    // Set endpoint
-    url: 'http://localhost:5000',
-    // request type
-    method: 'post',
-    // request header
-    header: 'Assessment insertion request',
-    // parameters
-    params: {
-        userID: 13123123,
-        blobID: 143123124413112313,
-        version: '1906a'
-    },
-    // request body--json file
-    data: jsonData,
-    // timeout
-    timeout: 1000
-})
-    .then(res => {
-        console.log(res.data);
-        console.log(res.status);
+    axios({
+        // Set endpoint
+        url: 'http://localhost:3000',
+        // request type
+        method: 'post',
+        // request header
+        header: 'Assessment insertion request',
+        // parameters
+        params: {
+            dcaID: DcaID,
+            assessmentID: AssessmentID,
+            version: 'v2'
+        },
+        // request body--json file
+        data: jsonData,
+        // timeout
+        //timeout: 1000
     })
-    .catch(err => {
+        .then(res => {
+          console.log(res.status);
+          console.log(`AssessmentID ${assessmentID} has been sent to CosmosDB.`);
+          resolve(`AssessmentID ${assessmentID} has been sent to CosmosDB.`);
+        })
+        .catch(err => {
+          console.error(err);
+          reject(`AssessmentID ${assessmentID} has FAILED been sent to CosmosDB.`);
+        });
+  });
+}
 
-    });
+module.exports = sendAssessment;
 
 /*
 // parameters: userID, blobID, version 

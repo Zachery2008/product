@@ -2,12 +2,10 @@ const express = require('express');
 const path = require('path');
 const logger = require('./middleware/logger');
 const reprocess = require('./reprocess.js');
+const uuidv4 = require('uuid/v4');
+const sendAssessment = require('./sendAssessment');
 const send2JobQueue = require('./sender.js');
 const app = express();
-const assessment = {
-    "assessmentID": "StandardTests25", 
-};
-var a = 1;
 
 // Init logger
 app.use(logger);
@@ -23,10 +21,21 @@ app.get('/', function (req, res, next){
     Input.command = req.query.command;
     Input.startTimeIdx = req.query.startTimeIdx;
     Input.endTimeIdx = req.query.endTimeIdx;
+    Input.assessmentID = uuidv4();
 
     console.log(Input);
     res.send('scheduled to process');
-    reprocess(Input, (err) => {
+    reprocess(Input).then((result) => {
+        console.log(result);
+        sendAssessment(Input.assessmentID, Input.dcaID);
+    }, (error) => {
+        console.log(error);
+    });
+
+    next();
+    
+    /*
+    , (resolve, reject) => {
         if(err){
             console.error('failed');
         }
@@ -35,6 +44,7 @@ app.get('/', function (req, res, next){
         }
     });
     next();
+    */
 });
 
 // POST method route
@@ -62,9 +72,10 @@ app.post('/', function (req, res, next) {
 });
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, 'localhost', () => {
     console.log(`Server started on port ${PORT}`);
-});;
+});
+
 

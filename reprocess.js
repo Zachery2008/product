@@ -7,7 +7,7 @@ const config = require('./config');
 const path = require('path');
 const Promise = require('promise');
 const storage = require('azure-storage');
-const uuidv4 = require('uuid/v4');
+
 
 const CosmosClient = require('@azure/cosmos').CosmosClient;
 
@@ -49,7 +49,8 @@ async function downloadBlob(containerName, filePrefix, localDir){
             if (err) {
                 reject(err);
             } else {
-                resolve({ message: `${data.entries.length} blobs in '${containerName}'`, blobs: data.entries }); 
+                //resolve({ message: `${data.entries.length} blobs in '${containerName}'`, blobs: data.entries }); 
+                resolve({message: `Download from blob ${filePrefix} is done.`});
             }
         });
     });
@@ -146,27 +147,45 @@ async function deletion(dataDir){
 
 
 
-module.exports = async function executeReprocess(Input, callback){
-    const AssessmentID = uuidv4();
-    const containerName = Input.containerName;
-    const CompanyID = Input.companyID;
-    const DcaID = Input.dcaID;
-    const Command = Input.command;
-    const StartTimeIdx = Input.startTimeIdx;
-    const EndTimeIdx = Input.endTimeIdx;
-    const MatlabArgs = JSON.stringify({
-        "AssessmentID": AssessmentID,
-        "Command": Command,
-        "StartTimeIdx": StartTimeIdx,
-        "EndTimeIdx": EndTimeIdx
+module.exports = async function executeReprocess(Input){
+    return new Promise((resolve, reject) => {
+        const AssessmentID = Input.assessmentID;
+        const containerName = Input.containerName;
+        const CompanyID = Input.companyID;
+        const DcaID = Input.dcaID;
+        const Command = Input.command;
+        const StartTimeIdx = Input.startTimeIdx;
+        const EndTimeIdx = Input.endTimeIdx;
+        const MatlabArgs = JSON.stringify({
+            "AssessmentID": AssessmentID,
+            "Command": Command,
+            "StartTimeIdx": StartTimeIdx,
+            "EndTimeIdx": EndTimeIdx
+        });
+        console.log(MatlabArgs);
+
+
+        // Make folder for assessment
+        const AssessmentDir = path.resolve('./../', AssessmentID);
+        makeDir(AssessmentDir);
+        
+        downloadBlob(containerName, DcaID, AssessmentDir)
+        .then(() => {
+            downloadBlob(containerName, CompanyID, AssessmentDir)
+            .then(() => {
+                runMatlab(MatlabArgs) 
+                .then(() => {
+                    resolve('ReProcess has successfully done.');
+                }, (error) => {
+                    reject(error);
+                }
+                )
+            })
+        });
     });
-    console.log(MatlabArgs);
+}
 
-
-    // Make folder for assessment
-    const AssessmentDir = path.resolve('./../', AssessmentID);
-    makeDir(AssessmentDir);
-    
+/*
     downloadBlob(containerName, DcaID, AssessmentDir)
         .then(() => {
             downloadBlob(containerName, CompanyID, AssessmentDir)
@@ -189,6 +208,6 @@ module.exports = async function executeReprocess(Input, callback){
     });
 }
 
-
+*/
 
 
