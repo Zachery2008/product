@@ -1,7 +1,6 @@
 //const { execSync } = require('child_process');
 const { execFile } = require('child_process');
 const fs = require('fs');
-const fsExtra = require('fs-extra')
 const makeDir = require('make-dir');
 const config = require('./config');
 const path = require('path');
@@ -36,21 +35,27 @@ async function downloadBlobToLocal(containerName, blobName, localFileName){
 
 async function downloadBlob(containerName, filePrefix, localDir){
     return new Promise((resolve, reject) => {
+        console.log('Start to download blob');
         blobService.listBlobsSegmentedWithPrefix(containerName, filePrefix, undefined, async function(err, data) {
             // Loop through the directory and download to local folder 
+            if (data.entries.length === 0){
+                reject({message: `There is no file for blobID ${filePrefix}` });
+            }
+            else {
+                await Promise.all(data.entries.map(function(datafile) {
+                    let localFileName = localDir + datafile.name.slice(36);
+                    console.log(datafile.name.slice(36));
+                    return downloadBlobToLocal(containerName, datafile.name, localFileName);
+                }))
 
-            await Promise.all(data.entries.map(function(datafile) {
-                let localFileName = localDir + datafile.name.slice(36);
-                console.log(datafile.name.slice(36));
-                return downloadBlobToLocal(containerName, datafile.name, localFileName).then(function(){
-                });
-            }))
-
-            if (err) {
-                reject(err);
-            } else {
-                //resolve({ message: `${data.entries.length} blobs in '${containerName}'`, blobs: data.entries }); 
-                resolve({message: `Download from blob ${filePrefix} is done.`});
+                if (err) {
+                    console.error('Error occurs when downloading blobs');
+                    reject(err);
+                } else {
+                    //resolve({ message: `${data.entries.length} blobs in '${containerName}'`, blobs: data.entries }); 
+                    console.log(`Download from blob ${filePrefix} is done.`);
+                    resolve({message: `Download from blob ${filePrefix} is done.`});
+                }
             }
         });
     });
@@ -63,11 +68,11 @@ async function runMatlab(args){
             execFile(file2Run, [args], (err) =>{
                 if(err){
                     console.error('reprocess failed');
-                    reject('err');
+                    reject('Reprocess failed due to data re-analysis.');
                 }
                 else{
                     console.log('reprocess done');
-                    resolve('Succeed of matlab reprocessing');
+                    resolve({message: `ReProcess has successfully done`});
                 }    
             }   
             );
@@ -104,7 +109,7 @@ async function upload2Cosmos(assessmentDir){
 
     try{
         await insertAssessment();
-        return Promise.resolve('Successed to upload to Cosmos');
+        return Promise.resolve('Succeed to upload to Cosmos');
     }
     catch(err){
         console.error(err);
@@ -174,13 +179,22 @@ module.exports = async function executeReprocess(Input){
             downloadBlob(containerName, CompanyID, AssessmentDir)
             .then(() => {
                 runMatlab(MatlabArgs) 
-                .then(() => {
-                    resolve('ReProcess has successfully done.');
-                }, (error) => {
-                    reject(error);
-                }
-                )
-            })
+                .then((result) => {
+                    resolve(result);
+                }).catch((err) => {
+                    reject(err);
+                });
+            }).catch((err) => {
+                console.error('Matlab will run without company info.');
+                runMatlab(MatlabArgs) 
+                .then((result) => {
+                    resolve(result);
+                }).catch((err) => {
+                    reject(err);
+                });
+            });
+        }).catch((err) => {
+            reject(err);
         });
     });
 }

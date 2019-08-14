@@ -30,7 +30,7 @@ async function sendAssessment(AssessmentID, DcaID){
         .then(res => {
           console.log(res.status);
           console.log(`AssessmentID ${assessmentID} has been sent to CosmosDB.`);
-          resolve(`AssessmentID ${assessmentID} has been sent to CosmosDB.`);
+          resolve('OK');
         })
         .catch(err => {
           console.error(err);

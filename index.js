@@ -4,6 +4,7 @@ const logger = require('./middleware/logger');
 const reprocess = require('./reprocess.js');
 const uuidv4 = require('uuid/v4');
 const sendAssessment = require('./sendAssessment');
+const fsExtra = require('fs-extra')
 const send2JobQueue = require('./sender.js');
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(logger);
 // Parse request body as JSON
 app.use(express.json());    
 
-app.get('/', function (req, res, next){
+app.get('/reprocess', function (req, res, next){
     //console.log(req.query);
     let Input = {};
     Input.containerName = req.query.containerName;
@@ -27,24 +28,14 @@ app.get('/', function (req, res, next){
     res.send('scheduled to process');
     reprocess(Input).then((result) => {
         console.log(result);
-        sendAssessment(Input.assessmentID, Input.dcaID);
-    }, (error) => {
-        console.log(error);
+        sendAssessment(Input.assessmentID, Input.dcaID).then(() => {  
+        });
+    }, (err) => {
+        console.log(err);
     });
 
     next();
     
-    /*
-    , (resolve, reject) => {
-        if(err){
-            console.error('failed');
-        }
-        else{
-            console.log('Processed successfully');
-        }
-    });
-    next();
-    */
 });
 
 // POST method route
@@ -57,18 +48,6 @@ app.post('/', function (req, res, next) {
     res.send('Get your post request');
     //res.send('Get your post request');
     next();
-    /*
-    res.json(assessment);
-    res.sendFile(fileName, function(err){
-        if(err){
-            next(err);
-        }
-        else{
-            console.log('Sent:', fileName);
-        }
-    });
-    console.log(res.body);
-    */
 });
 
 
