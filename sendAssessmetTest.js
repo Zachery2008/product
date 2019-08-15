@@ -3,6 +3,10 @@ const fs = require('fs');
 const logger = require('./middleware/logger');
 const axios = require('axios');
 
+const AssessmentID = '5a997abe-bb13-4dc7-8d3d-92c077698ea0';
+const DcaID = '145807F3-9D2F-4699-BAEE-00332342F700';
+
+sendAssessment(AssessmentID, DcaID)
 async function sendAssessment(AssessmentID, DcaID){
   return new Promise((resolve, reject) =>{
     // Read Json file from current directory
@@ -37,13 +41,12 @@ async function sendAssessment(AssessmentID, DcaID){
           resolve('OK');
         })
         .catch(err => {
-          console.error(err);
+          console.error(err.response.data.issues);
           reject(`AssessmentID ${AssessmentID} has FAILED been sent to CosmosDB.`);
         });
   });
 }
 
-module.exports = sendAssessment;
 
 /*
 // parameters: userID, blobID, version 

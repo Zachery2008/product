@@ -28,7 +28,11 @@ app.get('/reprocess', function (req, res, next){
     res.send('scheduled to process');
     reprocess(Input).then((result) => {
         console.log(result);
-        sendAssessment(Input.assessmentID, Input.dcaID).then(() => {  
+        sendAssessment(Input.assessmentID, Input.dcaID).then((result) => {  
+            console.log(result);
+        }).catch((err) => {
+            console.error(err)
+            console.error('Failed to insert assessment to sql database');
         });
     }, (err) => {
         console.log(err);
