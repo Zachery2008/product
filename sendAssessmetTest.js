@@ -6,15 +6,19 @@ const axios = require('axios');
 const AssessmentID = '5a997abe-bb13-4dc7-8d3d-92c077698ea0';
 const DcaID = '145807F3-9D2F-4699-BAEE-00332342F700';
 
-sendAssessment(AssessmentID, DcaID)
+sendAssessment(AssessmentID, DcaID, (resolve, reject) => {
+  if(resolve){
+    console.log(resolve);
+  }
+  else{
+    console.log(reject);
+  }
+});
+
 async function sendAssessment(AssessmentID, DcaID){
   return new Promise((resolve, reject) =>{
     // Read Json file from current directory
-    const jsonFilePath = process.cwd() +  '/../' + AssessmentID + '/Summary.json';
-    console.log(process.cwd());
-    console.log(AssessmentID);
-    console.log(DcaID);
-    console.log(jsonFilePath);
+    const jsonFilePath = path.resolve('../', AssessmentID, 'SummaryNew.json');
     let jsonData = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
 
     axios({
@@ -37,12 +41,11 @@ async function sendAssessment(AssessmentID, DcaID){
     })
         .then(res => {
           console.log(res.status);
-          console.log(`AssessmentID ${AssessmentID} has been sent to CosmosDB.`);
-          resolve('OK');
+          resolve({message:`AssessmentID ${AssessmentID} has been sent to CosmosDB.`});
         })
         .catch(err => {
           console.error(err.response.data.issues);
-          reject(`AssessmentID ${AssessmentID} has FAILED been sent to CosmosDB.`);
+          reject({message: `AssessmentID ${AssessmentID} has FAILED been sent to CosmosDB.`});
         });
   });
 }

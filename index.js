@@ -13,33 +13,55 @@ app.use(logger);
 // Parse request body as JSON
 app.use(express.json());    
 
-app.get('/reprocess', function (req, res, next){
-    //console.log(req.query);
-    let Input = {};
-    Input.containerName = req.query.containerName;
-    Input.dcaID = req.query.dcaID;
-    Input.companyID = req.query.companyID;
-    Input.command = req.query.command;
-    Input.startTimeIdx = req.query.startTimeIdx;
-    Input.endTimeIdx = req.query.endTimeIdx;
-    Input.assessmentID = uuidv4();
+// Reprocess port
+app.route('/reprocess')
+    .get(function (req, res, next){
+        console.log(process.cwd());
+        //console.log(req.query);
+        let Input = {};
+        Input.containerName = req.query.containerName;
+        Input.dcaID = req.query.dcaID;
+        Input.companyID = req.query.companyID;
+        Input.startTimeIdx = req.query.startTimeIdx;
+        Input.endTimeIdx = req.query.endTimeIdx;
+        // Generate a uuid for store local files 
+        Input.assessmentID = uuidv4();
+        LocalFileDir = path.resolve('../', Input.assessmentID);
 
-    console.log(Input);
-    res.send('scheduled to process');
-    reprocess(Input).then((result) => {
-        console.log(result);
-        sendAssessment(Input.assessmentID, Input.dcaID).then((result) => {  
-            console.log(result);
-        }).catch((err) => {
-            console.error(err)
-            console.error('Failed to insert assessment to sql database');
+        // If command is undefined, Matlab reprocess will start from Analyze Motion
+        if (typeof req.query.command === 'undefined') {
+            Input.command = 'A';
+          }
+        else {
+            Input.command = req.query.command;
+        }
+
+        res.send('scheduled to process');
+
+        reprocess(Input).then((result) => {
+            sendAssessment(Input.assessmentID, Input.dcaID).then((result) => {  
+                console.log(result); 
+            }).catch((err) => {
+                console.error(err);
+                //console.error('Failed to insert assessment to sql database');
+            });
+        }, (err) => {
+            console.log(err);
+        }).then(() => {
+        // Clean local files
+        fsExtra.remove(LocalFileDir, (err) => {
+            if(err){
+                console.error({message: `Have trouble when delete folder ${LocalFileDir}.`});
+            }
+            else{
+                console.log({message: `Files have been cleaned locally for capture ${Input.dcaID}.`});
+            }
         });
-    }, (err) => {
-        console.log(err);
     });
 
-    next();
+        
     
+        next();  
 });
 
 // POST method route

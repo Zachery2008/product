@@ -6,11 +6,7 @@ const axios = require('axios');
 async function sendAssessment(AssessmentID, DcaID){
   return new Promise((resolve, reject) =>{
     // Read Json file from current directory
-    const jsonFilePath = process.cwd() +  '/../' + AssessmentID + '/Summary.json';
-    console.log(process.cwd());
-    console.log(AssessmentID);
-    console.log(DcaID);
-    console.log(jsonFilePath);
+    const jsonFilePath = path.resolve('../', AssessmentID, 'Summary.json');
     let jsonData = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
 
     axios({
@@ -33,12 +29,11 @@ async function sendAssessment(AssessmentID, DcaID){
     })
         .then(res => {
           console.log(res.status);
-          console.log(`AssessmentID ${AssessmentID} has been sent to CosmosDB.`);
-          resolve('OK');
+          resolve({message:`AssessmentID ${AssessmentID} has been sent to CosmosDB.`});
         })
         .catch(err => {
-          console.error(err);
-          reject(`AssessmentID ${AssessmentID} has FAILED been sent to CosmosDB.`);
+          console.error(err.response.data.issues);
+          reject({message: `AssessmentID ${AssessmentID} has FAILED been sent to CosmosDB.`});
         });
   });
 }
