@@ -16,8 +16,6 @@ app.use(express.json());
 // Reprocess port
 app.route('/reprocess')
     .get(function (req, res, next){
-        console.log(process.cwd());
-        //console.log(req.query);
         let Input = {};
         Input.containerName = req.query.containerName;
         Input.dcaID = req.query.dcaID;
@@ -36,18 +34,30 @@ app.route('/reprocess')
             Input.command = req.query.command;
         }
 
-        res.send('scheduled to process');
+        //res.send('scheduled to process');
 
         reprocess(Input).then((result) => {
             sendAssessment(Input.assessmentID, Input.dcaID).then((result) => {  
                 console.log(result); 
+                res.status(200).json({
+                    message: result
+                  })
             }).catch((err) => {
                 console.error(err);
                 //console.error('Failed to insert assessment to sql database');
+                res.status(400).json({
+                    message: 'Failed to send json file to server',
+                    err: err,
+                  })
             });
         }, (err) => {
-            console.log(err);
-        }).then(() => {
+            console.error(err);
+            res.status(400).json({
+                message: 'Matlab reprocess failed',
+                err: err,
+              }) 
+        })
+        .then(() => {
         // Clean local files
         fsExtra.remove(LocalFileDir, (err) => {
             if(err){
@@ -57,11 +67,8 @@ app.route('/reprocess')
                 console.log({message: `Files have been cleaned locally for capture ${Input.dcaID}.`});
             }
         });
-    });
-
         
-    
-        next();  
+    });   
 });
 
 // POST method route

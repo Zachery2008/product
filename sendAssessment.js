@@ -33,7 +33,8 @@ async function sendAssessment(AssessmentID, DcaID){
         })
         .catch(err => {
           console.error(err.response.data.issues);
-          reject({message: `AssessmentID ${AssessmentID} has FAILED been sent to CosmosDB.`});
+          reject({message: `AssessmentID ${AssessmentID} has FAILED been sent to CosmosDB.`,
+                  err: err.response.data.issues});
         });
   });
 }
