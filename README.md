@@ -21,7 +21,7 @@ docker image ls
 ipconfig
 ```
 
-3. You can see the IPv4 Address that starts with 172.... in the Enthernet, replace this value to config.hostIP which is in /ReprocessV1/config.js. This IP address is the way that container reaches to your host.
+3. You can see the IPv4 Address that starts with 172.... in the Enthernet, replace this value to axios url's IP in /ReprocessV1/sendAssessment.js. This IP address is the way that container reaches to your host.
 
 4. Build the Reprocess image by running the Dockerfile in terminal: 
 ```sh
