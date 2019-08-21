@@ -8,20 +8,34 @@
 ## Installation
 On Docker Hub repository lifeboostersenz\senz, you can see all images with tags. 
 
-1. Pull the suitable image for your purpose due to limitation of network of Windows: running **Windows container** locally for development needs some IP settings(related to host laptop/PC) within container. So make sure to choose the right tag. Open termial(powershell), and run
+1. Pull the base image with matlab runtime and nodejs installed:
 ```sh
-docker pull llifeboostersenz/senz:tagname
+docker pull llifeboostersenz/senz:runtimev96-node12.8.0
 ``` 
 Once the download is done, you can see the image at your laptop/PC by 
 ```sh
 docker image ls
 ``` 
-2. Open terminal(powershell), create a container based on the image just being pulled:
+2. Pull this repository to your local host. Then open terminal(powershell), find the internal IP address of the host(laptop) by: create a container based on the image just being pulled:
 ```sh
-docker run -d -td lifeboostersenz/senz:tagname
+ipconfig
 ```
 
-Now, Matlab reprocess is running on your host!
+3. You can see the IPv4 Address that starts with 172.... in the Enthernet, replace this value to config.hostIP which is in /ReprocessV1/config.js. This IP address is the way that container reaches to your host.
+
+4. Build the Reprocess image by running the Dockerfile in terminal: 
+```sh
+docker build -t reprocess:v1 .
+````
+
+5. Construct the reprocess container:
+```sh
+docker run -d -td reprocess:v1
+```
+
+Now, Matlab reprocess is running on your host! 
+### Notice: Due to Windows NAT rule, everytime your restart/start your laptop, you need to build your reprocess image from step 3. Remember to remove previous reprocess images and containers that you built before you build your new reprocess image.  
+
 ## Usage 
 - **Reach to reprocess from host via http GET request** 
 
