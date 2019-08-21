@@ -20,17 +20,26 @@ docker image ls
 ```sh
 ipconfig
 ```
+You can see the IPv4 Address that starts with 172.... in the Enthernet, replace this value to axios url's IP in /ReprocessV1/sendAssessment.js. This IP address is the way that container reaches to your host.
 
-3. You can see the IPv4 Address that starts with 172.... in the Enthernet, replace this value to axios url's IP in /ReprocessV1/sendAssessment.js. This IP address is the way that container reaches to your host.
-
-4. Build the Reprocess image by running the Dockerfile in terminal: 
+3. Build the Reprocess image by running the Dockerfile in terminal: 
 ```sh
 docker build -t reprocess:v1 .
 ````
 
-5. Construct the reprocess container:
+6. Construct the reprocess container:
 ```sh
 docker run -d -td reprocess:v1
+```
+
+7. Run the reprocess by:
+```sh
+docker exec -it <containerID> powershell
+```
+Then you are in container's shell. run
+```sh
+cd senz\reprocess
+npm run dev
 ```
 
 Now, Matlab reprocess is running on your host! 
