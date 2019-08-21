@@ -3,15 +3,16 @@
 
 One to two paragraph statement about your product and what it does.
 
-![](header.png)
 
-## Installation
 
-Windows:
-
+## Prerequisite 
 1. Install Docker Desktop for Windows at https://docs.docker.com/docker-for-windows/install/.
 2. Before you can get access to the image, it is needed to register an account with LifeBooster email, and ask Lawrence add your account to the company and have right to access to repository lifeboostersenz\senz.
-3. Pull the suitable image for your purpose due to limitation of network of Windows: running **Windows container** locally for development needs some IP settings(related to host laptop/PC) within container. So make sure to choose the right tag. Open termial(powershell), and run
+
+## Installation
+On Docker Hub repository lifeboostersenz\senz, you can see all images with tags. 
+
+1. Pull the suitable image for your purpose due to limitation of network of Windows: running **Windows container** locally for development needs some IP settings(related to host laptop/PC) within container. So make sure to choose the right tag. Open termial(powershell), and run
 ```sh
 docker pull llifeboostersenz/senz:tagname
 ``` 
@@ -19,7 +20,7 @@ Once the download is done, you can see the image at your laptop/PC by
 ```sh
 docker image ls
 ``` 
-4. Open terminal(powershell), create a container based on the image just being pulled:
+2. Open terminal(powershell), create a container based on the image just being pulled:
 ```sh
 docker run -d -td lifeboostersenz/senz:tagname
 ```
@@ -32,7 +33,7 @@ Now, Matlab reprocess is running on your host!
   ```sh
   docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container-name> 
   ```
-  This internal address is the way that host can reach to applications within the container. And the port number is ``` 5000```.
+  This internal address is the way that host can reach to applications within the container. And the port number for matlab reprocess is ``` 5000```.
   
    **Required parameters**:
       
