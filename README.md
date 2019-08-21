@@ -1,10 +1,6 @@
 # Senz-ReProcess
 > Source code of reprocess container 
 
-One to two paragraph statement about your product and what it does.
-
-
-
 ## Prerequisite 
 1. Install Docker Desktop for Windows at https://docs.docker.com/docker-for-windows/install/.
 2. Before you can get access to the image, it is needed to register an account with LifeBooster email, and ask Lawrence add your account to the company and have right to access to repository lifeboostersenz\senz.
