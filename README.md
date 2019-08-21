@@ -64,7 +64,7 @@ Now, Matlab reprocess is running on your host!
   ```sh
   docker start <container-name>
   ```
-  Once the container is retarted, its IP address may be changed, you need to re-check the its IP address.
+  Once the container is restarted, its IP address may be changed, you need to re-check the its IP address.
   
 
 
